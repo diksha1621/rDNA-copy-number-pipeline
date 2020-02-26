@@ -1,14 +1,14 @@
 
-### Changing the header of sorted bam files 
+## Changing the header of sorted bam files 
 
 
 samtools view -H $i | sed -e 's/SN:CM001824.1/SN:rDNA_BLAST/' | sed -e 's/SN:CM001822.1/SN:Plasmid/' | sed -e 's/SN:CM001806.1/SN:Chr1 /' | sed -e 's/SN:CM001807.1/SN:Chr2 /' | sed -e 's/SN:CM001808.1/SN:Chr3 /' | sed -e 's/SN:CM001809.1/SN:Chr4 /' | sed -e 's/SN:CM001810.1/SN:Chr5 /' | sed -e 's/SN:CM001811.1/SN:Chr6 /' | sed -e 's/SN:CM001812.1/SN:Chr7 /' | sed -e 's/SN:CM001813.1/SN:Chr8 /' | sed -e 's/SN:CM001814.1/SN:Chr9 /' | sed -e 's/SN:CM001815.1/SN:Chr10/' | sed -e 's/SN:CM001816.1/SN:Chr11/' | sed -e 's/SN:CM001817.1/SN:Chr12/' | sed -e 's/SN:CM001818.1/SN:Chr13/' | sed -e 's/SN:CM001819.1/SN:Chr14/' | sed -e 's/SN:CM001820.1/SN:Chr15/' | sed -e 's/SN:CM001821.1/SN:Chr16/' | sed -e 's/SN:CM001823.1/SN:Mito_gen/' | samtools reheader - *.sorted.bam > *.newheader_sorted.bam
 
 
-
-### Running the bedtools to obtain whole genome per-base read coverage file 
+## Running the bedtools to obtain whole genome per-base read coverage file 
 
 bedtools genomecov -ibam *.newheader_sorted.bam -g *genome.fasta -d > *.WG_pbp_covg.txt
+
 
 ## rDNA per-base read coverage file
 
