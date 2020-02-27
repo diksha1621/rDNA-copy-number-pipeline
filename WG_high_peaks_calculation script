@@ -135,7 +135,19 @@ freq_SD_all("WG")                   *** WG directory contains all the whole geno
 WG <- read.table("freq.txt", header= TRUE, stringsAsFactors =FALSE)
 freq <- t(apply(WG[ ,-1,drop=F], 2, function(x) {
         names(x) <-WG$range;
-    	names(sort(x, decreasing = TRUE)[1:4])
+    	names(sort(x, decreasing = TRUE)[1:5])
   	 }))
 write.table(freq,file = "high_peaks.txt",row.names = TRUE, sep = "\t")
+
+
+### Removing Zero bin if present in the high peaks 
+
+WG_peaks <- read.table("high_peaks.txt", header = TRUE)
+row.names(WG_peaks ) <- WG_peaks$V1
+WG_peaks <- WG_peaks[ ,c(2:5)]
+WG_peaks[WG_peaks == "0-0.2"] <- NA                                        ############## replacing 0-0.2 with NA's
+WG_peaks[]<-t(apply(WG_peaks, 1, function(x) c(x[!is.na(x)], x[is.na(x)])))
+WG_peaks_remove_NAs <- WG_peaks[ ,c(1:3)]
+
+
 
