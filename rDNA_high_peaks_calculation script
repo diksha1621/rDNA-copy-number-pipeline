@@ -136,3 +136,12 @@ freq <- t(apply(WG[ ,-1,drop=F], 2, function(x) {
     	names(sort(x, decreasing = TRUE)[1:4])
   	 }))
 write.table(freq,file = "high_peaks.txt",row.names = TRUE, sep = "\t")
+
+### Removing Zero bin if present in the high peaks 
+
+rDNA_peaks <- read.table("high_peaks.txt", header = TRUE)
+row.names(rDNA_peaks ) <- rDNA_peaks$V1
+rDNA_peaks <- rDNA_peaks[ ,c(2:5)]
+rDNA_peaks[rDNA_peaks == "0-0.2"] <- NA                                        ############## replacing 0-0.2 with NA's
+rDNA_peaks[]<-t(apply(rDNA_peaks, 1, function(x) c(x[!is.na(x)], x[is.na(x)])))
+rDNA_peaks_remove_NAs <- rDNA_peaks[ ,c(1:3)]
