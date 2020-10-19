@@ -10,6 +10,7 @@ Here we present a bioinformatics pipeline that measures rDNA copy number using m
 This bioinformatics pipeline works as follows :
 
 i. a) It takes a sorted bam file as an input (position sorted bam file), alongwith the indexed reference genome to calculate the per-base coverage value across the reference.
+   
    b) It can also take per-base coverage (.txt) file as an input :
    
    Example file format:
