@@ -15,7 +15,7 @@ i. a) It takes a sorted bam file as an input (position sorted bam file), alongwi
    Example file format:
    The per-base read coverage file (from bedtools extracted using -genomecov option) in .txt format with 3 columns as:
 
-### Example :
+Example :
 GenomeID  Baseposition  Depth/Coverage
 
  Chr1            1               15
