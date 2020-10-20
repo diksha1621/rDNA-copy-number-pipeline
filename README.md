@@ -23,4 +23,4 @@ GenomeID  Baseposition  Depth/Coverage
 
 ii. It then calculates the frequency for each coverage bin (using given sliding window and bin size) 
 
-iii. Then using the frequency table generated above, it extracts the 3 highest peaks (corresponding to the most frequenct coverage across the base positions) for whole genome and rDNA, and use that to calculate the rDNA copy number.
+iii. Then using the frequency table generated above, it extracts the 3 highest peaks (corresponding to the most frequent coverage value across the base positions) for whole genome and rDNA, and use that to calculate the rDNA copy number.
