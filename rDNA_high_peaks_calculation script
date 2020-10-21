@@ -131,8 +131,8 @@ freq_SD_all("rDNA")                   *** rDNA directory contains all the per-ba
 ### Obtaining high peaks from the frequency file obtained above :
 
 rDNA <- read.table("freq.txt", header= TRUE, stringsAsFactors =FALSE)
-freq <- t(apply(WG[ ,-1,drop=F], 2, function(x) {
-        names(x) <-WG$range;
+freq <- t(apply(rDNA[ ,-1,drop=F], 2, function(x) {
+        names(x) <- rDNA$range;
     	names(sort(x, decreasing = TRUE)[1:4])
   	 }))
 write.table(freq,file = "high_peaks.txt",row.names = TRUE, sep = "\t")
